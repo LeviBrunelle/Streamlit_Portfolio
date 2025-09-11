@@ -1,8 +1,60 @@
 import streamlit as st
+import html
+
+def typewriter_heading(
+    text: str,
+    per_char_ms: int = 55,
+    cursor_color: str = "#2B2D42",
+    font_size: str = "clamp(5.0rem, 10vw, 8.0rem)",   # bigger by default
+    font_weight: int = 900,
+    top_margin: str = "0",
+    bottom_margin: str = "1rem",
+):
+    txt = text.strip()
+    n   = len(txt)
+    dur = max(1, n) * per_char_ms
+    safe = html.escape(txt)
+
+    st.markdown(f"""
+<style>
+.ty {{
+  font-size:{font_size} !important;
+  font-weight:{font_weight};
+  margin:{top_margin} 0 {bottom_margin} 0;
+  line-height:1.1;
+}}
+.ty .txt {{
+  position:relative;
+  display:inline-block;
+  white-space:nowrap;
+  clip-path: inset(0 100% 0 0);
+  animation:ty-reveal {dur}ms steps({n}, end) forwards;
+}}
+/* Caret: rides along the right edge of the revealed text */
+.ty .txt::after {{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  width:0;                      /* a pure border caret */
+  border-right:.08em solid {cursor_color};
+  left:0;
+  /* move from 0% to 100% of the parent width, then
+     nudge left so it sits inside the last glyph */
+  animation:
+    ty-caret-move {dur}ms steps({n}, end) forwards,
+    ty-caret-blink 900ms step-end infinite;
+}}
+@keyframes ty-reveal    {{ to {{ clip-path: inset(0 0 0 0); }} }}
+@keyframes ty-caret-move{{ to {{ left: calc(100% - .06em); }} }}
+@keyframes ty-caret-blink{{ 50% {{ opacity: 0; }} }}
+</style>
+
+<h1 class="ty"><span class="txt">{safe}</span></h1>
+""", unsafe_allow_html=True)
 
 
 def about():
-    st.title("Hi! I'm Levi.")
+    typewriter_heading("Hi! I'm Levi.", per_char_ms=55)
 
     # ===== Custom CSS for vertical section labels =====
 
@@ -16,7 +68,7 @@ def about():
     .text-row{
         display: grid;
         grid-template-columns: auto 1fr;      
-        align-items: center;                  
+        align-items: start;                  
         column-gap: .6rem;                  
     }
 
@@ -31,6 +83,7 @@ def about():
         line-height: 1;
         text-transform: uppercase;
         font-size: 1.25rem;
+        margin-top: .28em;
     }
 
     /* Tighten overall row spacing */
@@ -60,7 +113,7 @@ def about():
 
     /* constrain measure for nicer rag/spacing */
     @media (min-width: 900px){
-    .text-row .copy{ max-width: 75ch; }  /* ~65-75 characters per line is comfy */
+    .text-row .copy{ max-width: 75ch; } 
     }
     </style>
     """, unsafe_allow_html=True)
@@ -125,4 +178,3 @@ def about():
     """, unsafe_allow_html=True)
     with img:
         st.image("./images/lightning.png", use_container_width=True)
-

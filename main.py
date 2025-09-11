@@ -4,7 +4,7 @@ import os
 import app_pages as pg
 
 # ===== Streamlit Page Setup =====
-st.set_page_config(page_title="Levi Brunelle", layout="wide")
+st.set_page_config(page_title="Levi Brunelle", layout="wide", page_icon="./images/Logo.svg")
 
 
 # ===== Navigation Bar =====
