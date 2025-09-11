@@ -1,3 +1,5 @@
 import streamlit as st
-st.title("Projects")
-st.write("Projects page placeholder")
+
+def projects():
+    st.title("Projects")
+    st.write("Projects page placeholder")

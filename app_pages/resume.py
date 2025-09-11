@@ -1,3 +1,5 @@
 import streamlit as st
-st.title("Resume")
-st.write("Resume page placeholder")
+
+def resume():
+    st.title("Resume")
+    st.write("Resume page placeholder")

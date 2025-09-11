@@ -1,3 +1,5 @@
 import streamlit as st
-st.title("Contact")
-st.write("Contact page placeholder")
+
+def contact():
+    st.title("Contact")
+    st.write("Contact page placeholder")
