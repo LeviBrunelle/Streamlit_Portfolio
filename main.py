@@ -18,11 +18,11 @@ pages = ["About", "Projects", "Resume", "Contact"]
 
 # --- Built-in styling ---
 styles = {
-    "nav":  {"background-color": "transparent", "height": "8.25rem",
-             "padding": "0 1.25rem", "justify-content": "flex-start", "align-items": "center"},
+    "nav":  {"background-color": "transparent", "height": "9.25rem",
+             "padding": "0 0", "justify-content": "flex-start", "align-items": "center"},
     "div":  {"max-width": "100%", "width": "auto"},
     "ul":   {"gap": "2rem", "justify-content": "flex-start"},
-    "img":  {"height": "7.75rem", "margin-right": "0.5rem"},
+    "img":  {"height": "7.75rem", "margin-right": "0.0rem"},
     "a":    {"padding": "8px 10px", "text-decoration": "none"},
     "span": {"font-size": "1.45rem", "font-weight": "800"},
     "active": {
@@ -41,8 +41,8 @@ nav ul li a span { position: relative; display: inline-block; }
 nav ul li a span::after{
   content:"";
   position:absolute; left:0;
-  bottom:-6px;                /* adjust to taste */
-  height:2px;                 /* thickness */
+  bottom:-6px;                
+  height:2px;                 
   width:100%;
   background:#111;
   transform:scaleX(0);
@@ -59,6 +59,7 @@ nav ul li a span[style*="--active-underline"]::after{
 }
 """
 
+
 # --- Create the navbar ---
 selected = st_navbar(
     pages,
@@ -66,8 +67,12 @@ selected = st_navbar(
     logo_path=logo_path,         
     styles=styles,
     css=css,                 
-    options={"hide_nav": True, "show_menu": False, "show_sidebar": False, "use_padding": True},
+    options={"hide_nav": True, "show_menu": True, "show_sidebar": False, "use_padding": False},
+    adjust=True,
 )
+
+
+
 
 # --- Route ---
 if selected == "About": pg.about()
