@@ -25,7 +25,7 @@ def about():
         writing-mode: vertical-rl;
         transform: rotate(180deg);
         text-orientation: mixed;
-        font-family: "Bebas Neue", "Oswald", "League Spartan", system-ui, sans-serif;
+        font-family: "Oswald", "League Spartan", "Bebas Neue", system-ui, sans-serif;
         font-weight: 700;
         letter-spacing: .08em;
         line-height: 1;
@@ -49,23 +49,37 @@ def about():
         font-size: 0.95rem;
     }
     }
+
+    /* fully justify only the paragraphs in these rows */
+    .text-row .copy{
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;     
+    line-height: 1.5;
+    }
+
+    /* constrain measure for nicer rag/spacing */
+    @media (min-width: 900px){
+    .text-row .copy{ max-width: 75ch; }  /* ~65-75 characters per line is comfy */
+    }
     </style>
     """, unsafe_allow_html=True)
 
 
-    # Row 1 — text | image
-    
+    # ===== Content rows =====
+
+    # --- Upper Row ---
     txt, img = st.columns([7, 5], vertical_alignment="center")
     with txt:
         st.markdown("""
     <div class="section-row">
     <div class="text-row">
         <div class="vlabel">Academic</div>
-        <div>
-        Nanotechnology Engineering @ the University of Waterloo, with a Quantum Engineering option. 
-        I spend a lot of time at the Quantum-Nano Centre, touching semiconductor fab, lithography, deposition, 
-        materials characterization, polymers, and metallurgy. Next up: a deeper run into quantum physics & computing—
-        fueling a long-term curiosity for how matter behaves when the rules get weird.
+        <div class="copy" lang="en">
+            Nanotechnology Engineering @ the University of Waterloo, with a Quantum Engineering option. 
+            I spend a lot of time at the Quantum-Nano Centre, touching semiconductor fab, lithography, deposition, 
+            materials characterization, polymers, and metallurgy. Next up: a deeper run into quantum physics & computing—
+            fueling a long-term curiosity for how matter behaves when the rules get weird.
         </div>
     </div>
     </div>
@@ -73,7 +87,8 @@ def about():
     with img:
         st.image("./images/lightning.png", use_container_width=True)
 
-    # Row 2 — image | text
+
+    # --- Middle Row ---
     img, txt = st.columns([5, 7], vertical_alignment="center")
     with img:
         st.image("./images/lightning.png", use_container_width=True)
@@ -82,24 +97,25 @@ def about():
     <div class="section-row">
     <div class="text-row">
         <div class="vlabel">Professional</div>
-        <div>
-        Co-op rotations across industrial process and biotech R&D. At Terray Therapeutics, I built a 3-axis magnetic stage 
-        for a lab microscope and used rotational AC fields to manipulate nanoparticles—projects in microscopy, lab-on-chip 
-        drug discovery, DNA click chemistry, and surface science. The throughline: rapid prototyping, clean experiments, 
-        shipped results.
+        <div class="copy" lang="en">
+            Co-op rotations across industrial process and biotech R&D. At Terray Therapeutics, I built a 3-axis magnetic stage 
+            for a lab microscope and used rotational AC fields to manipulate nanoparticles—projects in microscopy, lab-on-chip 
+            drug discovery, DNA click chemistry, and surface science. The throughline: rapid prototyping, clean experiments, 
+            shipped results.
         </div>
     </div>
     </div>
     """, unsafe_allow_html=True)
 
-    # Row 3 — text | image
+
+    # --- Lower Row ---
     txt, img = st.columns([7, 5], vertical_alignment="center")
     with txt:
         st.markdown("""
     <div class="section-row">
     <div class="text-row">
         <div class="vlabel">Personal</div>
-        <div>
+        <div class="copy" lang="en">
             I'm a maker at heart. I run Archangel Ironworks, forging pattern-welded (Damascus) steel and kitchen 
             knives—recently leveling up the shop with custom tooling and better process control. I post builds and
             progress on Instagram; it keeps me honest and shows the craft behind the steel.
