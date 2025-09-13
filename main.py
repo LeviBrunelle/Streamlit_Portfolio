@@ -73,9 +73,13 @@ selected = st_navbar(
 
 
 
-
 # --- Route ---
 if selected == "About": pg.about()
 elif selected == "Projects": pg.projects()
 elif selected == "Resume": pg.resume()
 elif selected == "Contact": pg.contact()
+
+
+
+
+

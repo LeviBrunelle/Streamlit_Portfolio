@@ -1,58 +1,57 @@
 import streamlit as st
-import html
+import html, secrets
 
 def typewriter_heading(
     text: str,
     per_char_ms: int = 55,
     cursor_color: str = "#2B2D42",
-    font_size: str = "clamp(5.0rem, 10vw, 8.0rem)",   # bigger by default
+    font_size: str = "clamp(5.0rem, 10vw, 8.0rem)",
     font_weight: int = 900,
     top_margin: str = "0",
     bottom_margin: str = "1rem",
 ):
     txt = text.strip()
-    n   = len(txt)
-    dur = max(1, n) * per_char_ms
+    n   = max(1, len(txt))
+    dur = n * per_char_ms
+    uid = secrets.token_hex(3)  # 6-hex unique id per render
     safe = html.escape(txt)
 
     st.markdown(f"""
-        <style>
-            .ty {{
-            font-size:{font_size} !important;
-            font-weight:{font_weight};
-            margin:{top_margin} 0 {bottom_margin} 0;
-            line-height:1.1;
-            }}
-            .ty .txt {{
-            position:relative;
-            display:inline-block;
-            white-space:nowrap;
-            clip-path: inset(0 100% 0 0);
-            animation:ty-reveal {dur}ms steps({n}, end) forwards;
-            }}
-            /* Caret: rides along the right edge of the revealed text */
-            .ty .txt::after {{
-            content:"";
-            position:absolute;
-            top:0; bottom:0;
-            width:0;                      /* a pure border caret */
-            border-right:.08em solid {cursor_color};
-            left:0;
-            /* move from 0% to 100% of the parent width, then
-                nudge left so it sits inside the last glyph */
-            animation:
-                ty-caret-move {dur}ms steps({n}, end) forwards,
-                ty-caret-blink 900ms step-end infinite;
-            }}
-            @keyframes ty-reveal    {{ to {{ clip-path: inset(0 0 0 0); }} }}
-            @keyframes ty-caret-move{{ to {{ left: calc(100% - .06em); }} }}
-            @keyframes ty-caret-blink{{ 50% {{ opacity: 0; }} }}
-        </style>
+<style>
+.ty-{uid} {{
+  font-size:{font_size} !important;
+  font-weight:{font_weight};
+  margin:{top_margin} 0 {bottom_margin} 0;
+  line-height:1.1;
+}}
+.ty-{uid} .txt {{
+  position:relative;
+  display:inline-block;
+  white-space:nowrap;
+  clip-path: inset(0 100% 0 0);
+  animation: ty-reveal-{uid} {dur}ms steps({n}, end) forwards;
+}}
+.ty-{uid} .txt::after {{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  width:0; border-right:.08em solid {cursor_color};
+  left:0;
+  animation:
+    ty-caret-move-{uid} {dur}ms steps({n}, end) forwards,
+    ty-caret-blink-{uid} 900ms step-end infinite;
+}}
+@keyframes ty-reveal-{uid}    {{ to {{ clip-path: inset(0 0 0 0); }} }}
+@keyframes ty-caret-move-{uid}{{ to {{ left: calc(100% - .06em); }} }}
+@keyframes ty-caret-blink-{uid}{{ 50% {{ opacity: 0; }} }}
+</style>
 
-        <h1 class="ty"><span class="txt">{safe}</span></h1>
-    """, unsafe_allow_html=True)
+<h1 class="ty-{uid}"><span class="txt">{safe}</span></h1>
+""", unsafe_allow_html=True)
+
 
 def about():
+    st.query_params.update(page="about")
     typewriter_heading("Hi! I'm Levi.", per_char_ms=55)
 
     # ===== Custom CSS for vertical section labels =====
@@ -180,9 +179,10 @@ def about():
                 <div class="vlabel">Professional</div>
                 <div class="copy" lang="en">
                     <div class="slide" style="--delay:1400ms;">
-                        Coast-to-coast R&D—from Los Angeles to Boston. I've designed and fabricated microscope tooling, 
-                        deployed data analysis and optical simulations tools, and turned one-off experiments into reliable 
-                        workflows. Fast prototypes, verified results.
+                        Coast-to-coast R&D—from Los Angeles to Boston. I've designed microscope tooling, 
+                        deployed data analysis and simulation tools, and turned one-off experiments into 
+                        reliable workflows. I'm happiest solving problems that force me to learn new skills 
+                        and result in dependable tools.
                     </div>
                 </div>
             </div>
@@ -200,7 +200,7 @@ def about():
                 <div class="copy" lang="en">
                     <div class="slide" style="--delay:2200ms;">
                         I'm a craftsman at heart, making real things that last. Archangel Ironworks is my 
-                        after-hours passion— forging custom blades and jewelry, experimenting with fun 
+                        after hours passion— forging custom blades and jewelry, experimenting with fun 
                         Damascus steel patterns, and fabricating awesome equipment for the shop. I post some 
                         of the cool stuff I make on Instagram. Away from the anvil, I'm an amateur perfumer 
                         and musical theatre nerd.

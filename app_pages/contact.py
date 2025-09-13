@@ -1,6 +1,113 @@
+# app_pages/contact.py
+import base64, pathlib
+from textwrap import dedent
 import streamlit as st
-from about import typewriter_heading
+from .about import typewriter_heading   # adjust import if needed
 
+# Use whichever address you want as primary
+EMAIL = "lbrunell@uwaterloo.ca"
+
+def _data_uri(path: str) -> str:
+    p = pathlib.Path(path)
+    b64 = base64.b64encode(p.read_bytes()).decode("utf-8")
+    return f"data:image/png;base64,{b64}"
 
 def contact():
+    st.query_params.update(page="contact")
     typewriter_heading("Let's get in touch.", per_char_ms=55)
+
+    st.markdown(dedent("""
+    <style>
+    :root{
+    --ink:#2B2D42;
+    --muted:#4B5563;
+    }
+
+    /* Left-aligned container */
+    .contact-wrap{ margin:0; }
+
+    /* Vertical list reset */
+    .vlist{ list-style:none; margin:0; padding:0; }
+    .vlist li{ margin: .25rem 0 1rem; }
+
+    /* Row link */
+    a.row{
+    display:flex; align-items:center; gap:1rem;
+    padding:.25rem 0;
+    color:var(--ink);
+    text-decoration:none;
+    background:none; border:none; box-shadow:none; transform:none;
+    }
+    a.row:visited{ color:var(--ink); }
+    a.row:hover{ background:transparent; transform:none; }
+
+    /* Icon sizing */
+    .icon{ width:40px; height:40px; flex:0 0 40px; border-radius:.5rem; }
+
+    /* Text block */
+    .txt{ display:flex; flex-direction:column; gap:.25rem; }
+    .title{ font-weight:800; letter-spacing:.01em; }
+    .desc{
+    color:var(--muted);
+    line-height:1.45;
+    position:relative; 
+    }
+
+    /* Sweep underline on hover (left -> right) */
+    .desc::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:-3px;
+    height:2px; background:#000;               /* black underline */
+    transform:scaleX(0); transform-origin:left;
+    transition:transform .35s ease;
+    }
+    a.row:hover .desc::after{ transform:scaleX(1); }
+
+    </style>
+    """), unsafe_allow_html=True)
+
+    # Encode your PNG icons (update paths to your files)
+    links = [
+        {
+            "href": f"mailto:{EMAIL}",
+            "img": _data_uri("images/email.png"),
+            "title": "Email",
+            "desc": "Fastest way to reach me for opportunities or questions.",
+        },
+        {
+            "href": "https://www.linkedin.com/in/lbrunell",
+            "img": _data_uri("images/linkedin.png"),
+            "title": "LinkedIn",
+            "desc": "Professional updates and DMs—happy to connect.",
+        },
+        {
+            "href": "https://github.com/LeviBrunelle",
+            "img": _data_uri("images/github.png"),
+            "title": "GitHub",
+            "desc": "Code, experiments, and work-in-progress projects.",
+        },
+        {
+            "href": "https://instagram.com/archangelironworks",
+            "img": _data_uri("images/instagram.png"),
+            "title": "Instagram",
+            "desc": "Bladesmithing and other metal-related projects.",
+        },
+    ]
+
+    # Styles
+    html = ['<div class="contact-wrap"><ul class="vlist">']
+    for l in links:
+        html.append(dedent(f"""
+        <li>
+        <a class="row" href="{l['href']}" target="_blank" rel="noopener">
+            <img class="icon" src="{l['img']}" alt="{l['title']} icon" />
+            <div class="txt">
+            <div class="title">{l['title']}</div>
+            <div class="desc">{l['desc']}</div>
+            </div>
+        </a>
+        </li>
+        """))
+    html.append("</ul></div>")
+
+    st.markdown("".join(html), unsafe_allow_html=True)
