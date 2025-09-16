@@ -1,10 +1,10 @@
-# app_pages/contact.py
+
 import base64, pathlib
 from textwrap import dedent
 import streamlit as st
-from .about import typewriter_heading   # adjust import if needed
+from .about import typewriter_heading  
 
-# Use whichever address you want as primary
+
 EMAIL = "lbrunell@uwaterloo.ca"
 
 def _data_uri(path: str) -> str:
@@ -57,7 +57,7 @@ def contact():
     .desc::after{
     content:"";
     position:absolute; left:0; right:0; bottom:-3px;
-    height:2px; background:#000;               /* black underline */
+    height:2px; background:#000;           
     transform:scaleX(0); transform-origin:left;
     transition:transform .35s ease;
     }
@@ -66,7 +66,7 @@ def contact():
     </style>
     """), unsafe_allow_html=True)
 
-    # Encode your PNG icons (update paths to your files)
+
     links = [
         {
             "href": f"mailto:{EMAIL}",
