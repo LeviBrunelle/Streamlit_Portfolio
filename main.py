@@ -14,7 +14,7 @@ parent_dir = os.path.dirname(os.path.abspath(__file__))
 logo_path = os.path.join(parent_dir, "images/Logo.svg")
 
 # --- Page Names ---
-pages = ["About", "Projects", "Resume", "Contact"]
+pages = ["About", "Projects", "Experience", "Contact"]
 
 # --- Built-in styling ---
 styles = {
@@ -67,7 +67,7 @@ selected = st_navbar(
     logo_path=logo_path,         
     styles=styles,
     css=css,                 
-    options={"hide_nav": True, "show_menu": True, "show_sidebar": False, "use_padding": False},
+    options={"hide_nav": True, "show_menu": False, "show_sidebar": False, "use_padding": False},
     adjust=True,
 )
 
@@ -76,7 +76,7 @@ selected = st_navbar(
 # --- Route ---
 if selected == "About": pg.about()
 elif selected == "Projects": pg.projects()
-elif selected == "Resume": pg.resume()
+elif selected == "Experience": pg.experience()
 elif selected == "Contact": pg.contact()
 
 

@@ -17,37 +17,37 @@ def typewriter_heading(
     safe = html.escape(txt)
 
     st.markdown(f"""
-<style>
-.ty-{uid} {{
-  font-size:{font_size} !important;
-  font-weight:{font_weight};
-  margin:{top_margin} 0 {bottom_margin} 0;
-  line-height:1.1;
-}}
-.ty-{uid} .txt {{
-  position:relative;
-  display:inline-block;
-  white-space:nowrap;
-  clip-path: inset(0 100% 0 0);
-  animation: ty-reveal-{uid} {dur}ms steps({n}, end) forwards;
-}}
-.ty-{uid} .txt::after {{
-  content:"";
-  position:absolute;
-  top:0; bottom:0;
-  width:0; border-right:.08em solid {cursor_color};
-  left:0;
-  animation:
-    ty-caret-move-{uid} {dur}ms steps({n}, end) forwards,
-    ty-caret-blink-{uid} 900ms step-end infinite;
-}}
-@keyframes ty-reveal-{uid}    {{ to {{ clip-path: inset(0 0 0 0); }} }}
-@keyframes ty-caret-move-{uid}{{ to {{ left: calc(100% - .06em); }} }}
-@keyframes ty-caret-blink-{uid}{{ 50% {{ opacity: 0; }} }}
-</style>
+        <style>
+        .ty-{uid} {{
+        font-size:{font_size} !important;
+        font-weight:{font_weight};
+        margin:{top_margin} 0 {bottom_margin} 0;
+        line-height:1.1;
+        }}
+        .ty-{uid} .txt {{
+        position:relative;
+        display:inline-block;
+        white-space:nowrap;
+        clip-path: inset(0 100% 0 0);
+        animation: ty-reveal-{uid} {dur}ms steps({n}, end) forwards;
+        }}
+        .ty-{uid} .txt::after {{
+        content:"";
+        position:absolute;
+        top:0; bottom:0;
+        width:0; border-right:.08em solid {cursor_color};
+        left:0;
+        animation:
+            ty-caret-move-{uid} {dur}ms steps({n}, end) forwards,
+            ty-caret-blink-{uid} 900ms step-end infinite;
+        }}
+        @keyframes ty-reveal-{uid}    {{ to {{ clip-path: inset(0 0 0 0); }} }}
+        @keyframes ty-caret-move-{uid}{{ to {{ left: calc(100% - .06em); }} }}
+        @keyframes ty-caret-blink-{uid}{{ 50% {{ opacity: 0; }} }}
+        </style>
 
-<h1 class="ty-{uid}"><span class="txt">{safe}</span></h1>
-""", unsafe_allow_html=True)
+        <h1 class="ty-{uid}"><span class="txt">{safe}</span></h1>
+        """, unsafe_allow_html=True)
 
 
 def about():
