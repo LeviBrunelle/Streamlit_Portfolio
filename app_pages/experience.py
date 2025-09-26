@@ -101,6 +101,7 @@ def job_details(item: dict, delay_ms: int = 0) -> str:
 def experience():
     typewriter_heading("My career so far.", per_char_ms=55)
 
+
     # CSS styling
     st.markdown(
         dedent("""
@@ -274,11 +275,6 @@ def experience():
     jobs = get_experience(cfg)
 
     st.markdown("<div class='rs-wrap'>", unsafe_allow_html=True)
-
-    if not jobs:
-        st.info("No experience found in resume.yaml (expected a top-level 'experience:' list).")
-        st.markdown("</div>", unsafe_allow_html=True)
-        return
 
     # stagger entrance animation
     for i, j in enumerate(jobs):

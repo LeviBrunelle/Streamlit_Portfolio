@@ -164,8 +164,8 @@ def about():
             </div>
             </div>
             """, unsafe_allow_html=True)
-    # with img:
-    #     st.image("./images/lightning.png", width='stretch')
+    with img:
+        st.image("./images/qnc.png", width='stretch')
 
 
     # --- Middle Row ---

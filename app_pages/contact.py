@@ -2,7 +2,7 @@
 import base64, pathlib
 from textwrap import dedent
 import streamlit as st
-from .about import typewriter_heading  
+from .about import typewriter_heading
 
 
 EMAIL = "lbrunell@uwaterloo.ca"
@@ -15,6 +15,7 @@ def _data_uri(path: str) -> str:
 def contact():
     st.query_params.update(page="contact")
     typewriter_heading("Let's get in touch.", per_char_ms=55)
+
 
     st.markdown(dedent("""
     <style>

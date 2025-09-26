@@ -5,7 +5,18 @@ import app_pages as pg
 
 # ===== Streamlit Page Setup =====
 st.set_page_config(page_title="Levi Brunelle", layout="wide", page_icon="./images/Logo.svg")
+st.markdown("""
+<style>
+/* Kill the big top offset Streamlit adds */
+section.stMain { top: 0 !important; }
 
+/* Tighten the content pad a bit (optional) */
+div.block-container { padding-top: 5.25rem !important; }
+
+/* If your header is hidden, ensure it doesn't reserve space (optional) */
+/* header[data-testid="stHeader"] { height: 0 !important; } */
+</style>
+""", unsafe_allow_html=True)
 
 # ===== Navigation Bar =====
 
