@@ -1,0 +1,64 @@
+{
+  "roles": [
+    {
+      "title": "Lithography Intern",
+      "company": "Irradiant Technologies",
+      "location": "Boston, MA",
+      "dates": "May 2025 - Aug 2025",
+      "logo": "/images/jobs/irradiant_logo.png",
+      "link": "https://github.com/LeviBrunelle/PyTorch_Diffraction_Simulation",       
+      "link_text": "View Github Repo",
+      "bullets": [
+        "Proposed, designed, and built an image-processing pipeline in Python to detect sample interfaces on a 2-photon lithography system, applying piecewise regression models and vectorized array calculations to generate 3D surface maps of warping, tilt, and roughness for precise print-plane calibration.",
+        "Built a GPU-accelerated lens simulation tool in PyTorch with a Streamlit GUI, enabling ~10x speedup in realistic diffraction modeling of complex optical systems.",
+        "Designed and fabricated optical components using 2-photon lithography; validated performance using image-analysis scripts and metrology tools.",
+        "Modeled and machined precise mounting components for optical breadboard setups, enabling the optical engineers to create more complex custom lithography and metrology systems."
+      ],
+      "skills": ["Python","PyTorch","Scikit","SciPy","NumPy","Image Processing","Wave Optics","2-Photon Lithography","Confocal Microscopy","Streamlit"]
+    },
+
+    {
+      "title": "R&D Engineering Intern",
+      "company": "Terray Therapeutics",
+      "location": "Pasadena, CA",
+      "dates": "Sep 2023 - Apr 2024",
+      "logo": "/images/jobs/terray_logo.png",
+      "bullets": [
+        "Designed and fabricated a 3-axis AC electromagnetic microscope stage using Fusion360, CNC, and manual machining to enable live nanoparticle manipulation.",
+        "Developed image processing scripts using NumPy, Scikit-Learn, Pandas, and ImageJ to extract and analyze intensity data, ultimately discovering a more efficient surface chemistry for microarrays and improving loading efficiency by 20%.",
+        "Optimized microarray loading procedure by designing and printing custom sample holders, reducing touchpoints from 12 to 5.",
+        "Performed experiments on gold-thiol and nitride functionalized coatings for silicon microarrays to reduce non-specific binding of bio-enabled nanoparticles."
+      ],
+      "skills": ["Surface Chemistry", "Python", "Image Processing", "Electromag", "DNA Click", "Fluorescent Microscopy", "Fusion360"]
+    },
+
+    {
+      "title": "Process Engineering Intern",
+      "company": "Evonik Industries",
+      "location": "Maitland, ON",
+      "dates": "May 2022 - Aug 2022",
+      "logo": "/images/jobs/evonik_logo.png",
+      "bullets": [
+        "Engineered a project to fix the RO water filtration system by processing instrument data with Pandas, performing water tests, and doing Root Cause Analysis to find and replace components and chemicals, saving the plant an estimated $60 000/year.",
+        "Specced, procured, and replaced plant instruments."
+      ],
+      "skills": ["Data Processing", "Root Cause Analysis", "Plant Instrumentation", "Process Engineering", "Reverse Osmosis", "Excel VBA"]
+    },
+
+    {
+      "title": "Bladesmith / Founder",
+      "company": "Archangel Ironworks",
+      "location": "Winnipeg, MB",
+      "dates": "Ongoing",
+      "logo": "/images/jobs/archangel_logo.jpg",
+      "link": "https://www.instagram.com/archangelironworks/",       
+      "link_text": "View Instagram Profile",
+      "skills": ["Bladesmithing", "Blacksmithing", "Welding", "Metal Fabrication", "Manual Machining", "Woodworking", "Jewelry Making"],
+      "bullets": [
+        "Designs and creates performance custom blades, pattern-welded (Damascus) steel, and jewelry.",
+        "Fabricates shop equipment such as belt grinders and forging presses using SMAW/GMAW, manual machining, and other fabrication techniques."
+      ]
+    }
+
+  ]
+}
