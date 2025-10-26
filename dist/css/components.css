@@ -1,0 +1,145 @@
+/* ---------- NAVBAR ---------- */
+
+.site-nav{
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center;
+  gap: 40px;
+  height: var(--nav-height);
+  padding: 0 var(--nav-pad-x);
+  border: 0 !important;
+  box-shadow: none !important;
+  background: #fff;
+}
+
+/* left group (logo) */
+.brand{
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+}
+.brand img{
+  height: var(--logo-size);
+  width: auto;
+  display: block;
+}
+
+/* right group (links) */
+.links{
+  display: flex; align-items: center;
+  gap: var(--nav-gap);
+}
+
+/* link look */
+.nav-link{
+  position: relative;
+  display: inline-block;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 28px; 
+  line-height: 1;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 6px 0;   
+}
+
+/* thin underline that animates on hover and persists on active */
+.nav-link::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: -10px;
+  height: 3px;
+  background: var(--ink);
+  opacity: 0;
+  transition: right .28s cubic-bezier(.2,.7,0,.95), opacity .12s linear;
+}
+.nav-link:hover::after{ right: 0; opacity: 1; }
+.nav-link.is-active::after{ right: 0; opacity: 1; }
+
+/* remove any page-wide top border line added elsewhere */
+header.site-nav, #navbar, .nav, header{
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ---------- TYPEWRITER ---------- */
+.typewrite{
+  display:inline-flex; align-items:flex-end; gap:.2ch;
+}
+.typewrite .text{ white-space:nowrap }
+.typewrite .caret{
+  width:0.08em; height:1em; background:var(--fg);
+  animation: blink 1s steps(1,end) infinite;
+}
+@keyframes blink{ 50%{ opacity:0 } }
+
+/* ---------- VERTICAL SECTION LABELS (ABOUT) ---------- */
+.section-row{
+  display:grid; grid-template-columns: 42px 1fr 520px; gap:24px;
+  align-items:start; margin: 28px 0 56px;
+}
+.section-row .vlabel{
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  letter-spacing:.16em; font-weight:800; color:var(--muted);
+  font-size: clamp(12px, 1.1vw, 14px);
+}
+
+/* ---------- CARD / EXPANDER (PROJECT & EXPERIENCE) ---------- */
+.card{
+  border:2px solid transparent; border-radius:var(--radius-lg);
+  background:#f9f9f9;
+  transition: border-color 150ms ease, background 150ms ease, box-shadow 150ms ease;
+  max-width:var(--maxw);
+}
+.card:hover{ border-color:var(--stroke); background:#fff }
+.card summary{
+  list-style:none; cursor:pointer;
+  display:grid; grid-template-columns: 112px 1fr; gap:18px; align-items:center;
+  padding:16px;
+}
+.card summary::-webkit-details-marker{ display:none; }
+.card .cover{
+  width:112px; height:112px; border-radius:16px; background:#f2f2f2; object-fit:cover;
+}
+.card .title{ font-size:1.35rem; font-weight:800 }
+.card .dates{ opacity:.9 }
+.card .blurb{ opacity:.95 }
+.card[open] summary{ grid-template-columns: 92px 1fr }
+.card[open] .cover{ width:92px; height:92px; border-radius:12px }
+.card-body{ overflow:hidden }
+.card-inner{ padding: 4px 16px 16px }
+
+.pills{ display:flex; flex-wrap:wrap; gap:.6rem .8rem; margin-top:8px }
+.pill{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:.44rem .95rem; border:2px solid var(--pillStroke); border-radius:9999px;
+  line-height:1; font-weight:700; white-space:nowrap; background:var(--pillBg);
+}
+
+/* Outline appears only on hover OR open */
+details.card{ border-color:transparent }
+details.card:hover{ border-color:var(--stroke) }
+details.card[open]{ border-color:var(--stroke); background:#fff }
+
+/* ---------- GALLERY STRIP ---------- */
+.gallery{
+  margin-top:.75rem; display:flex; gap:12px; overflow-x:auto; padding-bottom:6px;
+  -webkit-overflow-scrolling:touch;
+}
+.thumb{ flex:0 0 auto; border-radius:12px; overflow:hidden; border:2px solid var(--stroke); background:#fff; cursor:zoom-in }
+.thumb img{ display:block; height:140px; width:auto; object-fit:cover }
+
+/* ---------- LIGHTBOX ---------- */
+.lb-backdrop{
+  position:fixed; inset:0; background:rgba(0,0,0,1);
+  display:none; align-items:center; justify-content:center; padding:4vh 3vw;
+  z-index:9999;
+}
+.lb-backdrop.show{ display:flex }
+.lb-wrap{ max-width:min(96vw, 1400px); max-height:92vh; overflow:hidden; border-radius:12px; background:#000; box-shadow:0 14px 40px rgba(0,0,0,.6) }
+.lb-wrap img{ width:100%; height:auto; display:block }
+.lb-close{
+  position:fixed; top:14px; right:18px; font-size:22px; color:#111; background:#fff;
+  border:2px solid #111; border-radius:999px; padding:.35rem .7rem; cursor:pointer
+}
+
+
