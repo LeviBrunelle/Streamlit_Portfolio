@@ -1,6 +1,4 @@
 // src/components/expander.ts
-// Renders a single <details class="card"> ... </details> block.
-// Kept simple, matching your previous structure; just adds optional CTA button.
 
 type CardOpts = {
   cover?:   string;
@@ -10,8 +8,8 @@ type CardOpts = {
   bullets?: string[];
   skills?:  string[];
   gallery?: string[];
-  link_text?: string;   // NEW (optional)
-  link_url?:  string;   // NEW (optional)
+  link_text?: string;
+  link_url?:  string;
 };
 
 const esc = (s:string='') =>

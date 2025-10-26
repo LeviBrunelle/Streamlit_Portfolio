@@ -2,7 +2,7 @@ export function mountNavbar(forceKey?: "about"|"projects"|"experience"|"contact"
   const host = document.getElementById("navbar");
   if (!host) return;
 
-  // Inject markup inside the header.site-nav (do not create another <nav class="site-nav">)
+  // Inject markup inside the header.site-nav
   host.innerHTML = `
     <a class="brand" href="/index.html" aria-label="Home">
       <!-- Use your actual filename: Logo.png or Logo.svg -->
