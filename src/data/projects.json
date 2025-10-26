@@ -1,0 +1,44 @@
+{
+  "projects": [
+    {
+      "title": "GPU-Accelerated Lens Simulator",
+      "dates": "June 2025 - July 2025",
+      "blurb": "GPU-accelerated diffraction modeling with a Streamlit UI.",
+      "cover": "/images/projects/lens-sim/1mm_biconvex_lens.png",
+      "link": "https://github.com/LeviBrunelle/PyTorch_Diffraction_Simulation",       
+      "link_text": "View Github Repo",
+      "bullets": [
+        "~10x speedup (vs CPU) via GPU acceleration with PyTorch.",
+        "Can accommodate arbitrary number of lens elements in the optical path.",
+        "Simulation metrics include PSF, MTF, effective and back focal lengths.",
+        "Visualization of 2D intensity field with optional dark mode.",
+        "Custom Streamlit UI for fast, responsive parameter tweaking.",
+        "Plans to add many more features, including different optical components and metrics."
+      ],
+      "skills": ["Python", "PyTorch", "Scalar Wave Optics", "OOP", "Streamlit"],
+      "gallery": [
+        "/images/projects/lens-sim/gui1.png",
+        "/images/projects/lens-sim/gui2.png",
+        "/images/projects/lens-sim/gui3.png",
+        "/images/projects/lens-sim/gui4.png"
+      ]
+    },
+
+    {
+      "title": "Knife Vise",
+      "dates": "September 2025",
+      "blurb": "3-axis benchtop vise for securely holding knives during hand sanding.",
+      "cover": "/images/projects/knife-vise/cover.png",
+      "bullets": [
+        "3-axis design allows for precise positioning and stability.",
+        "Features adjustable clamps to securely hold various knife shapes.",
+        "Compact design fits on most workbenches without sacrificing space.",
+        "Spring loaded jaws for quick and easy release of the knife."
+      ],
+      "skills": ["Fusion360"],
+      "gallery": [
+        "/images/projects/knife-vise/img1.png"
+      ]
+    }
+  ]
+}
