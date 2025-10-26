@@ -61,7 +61,7 @@ export function mountAbout(){
         </article>
       </div>
       <figure class="figure">
-        <img src="/images/qnc.png" alt="Workshop imagery">
+        <img src="/images/personal.png" alt="Workshop imagery">
       </figure>
     </section>
   `;

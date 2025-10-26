@@ -22,7 +22,7 @@ async function mount() {
     await mountAbout();
   }
 
-  // IMPORTANT: run reveals AFTER page markup exists
+
   initRevealsForCurrentPage();
 }
 

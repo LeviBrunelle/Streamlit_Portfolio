@@ -1,6 +1,22 @@
 {
   "projects": [
     {
+      "title": "Olevius",
+      "dates": "June 2025 - Present",
+      "blurb": "Novel blood pressure monitor - wrist-worn, continuous, and cuffless.",
+      "cover": "/images/projects/olevius/Olevius.png",
+      "link": "https://olevius.info/",       
+      "link_text": "View Website",
+      "bullets": [
+        "Engineering capstone project, aiming to grow into a startup.",
+        "Building a wrist-worn device to measure blood pressure continuously without a traditional cuff.",
+        "Clinical accuracy goal of ±3 mmHg, comparable to gold-standard cuff-based measurements.",
+        "My roles: mechanical design and fabrication, optical simulation and fabrication, signal processing"
+      ],
+      "skills": ["Optical Simulation", "Signal Processing", "python", "Fiber Optics", "Fusion360", "COMSOL"]
+    },
+
+    {
       "title": "GPU-Accelerated Lens Simulator",
       "dates": "June 2025 - July 2025",
       "blurb": "GPU-accelerated diffraction modeling with a Streamlit UI.",
@@ -30,15 +46,66 @@
       "blurb": "3-axis benchtop vise for securely holding knives during hand sanding.",
       "cover": "/images/projects/knife-vise/cover.png",
       "bullets": [
-        "3-axis design allows for precise positioning and stability.",
-        "Features adjustable clamps to securely hold various knife shapes.",
+        "3 degrees of freedom allows for precise positioning and stability.",
+        "Features adjustable clamps to securely hold various blade shapes.",
         "Compact design fits on most workbenches without sacrificing space.",
-        "Spring loaded jaws for quick and easy release of the knife."
+        "Spring loaded jaws for quick and easy release of the blade.",
+        "Will be fabricated this winter break."
       ],
       "skills": ["Fusion360"],
       "gallery": [
-        "/images/projects/knife-vise/img1.png"
+        "/images/projects/knife-vise/img1.png",
+        "/images/projects/knife-vise/img2.png",
+        "/images/projects/knife-vise/img3.png"
+      ]
+    },
+
+    {
+      "title": "2x72 Belt Grinder",
+      "dates": "February 2025",
+      "blurb": "3hp belt grinder for knife making and metal fabrication.",
+      "cover": "/images/projects/grinder/img1.png",
+      "bullets": [
+        "3hp motor with vfd means the belt will maintain speed under any load.",
+        "2-axis belt tracking system ensures consistent alignment and prevents wobble.",
+        "Can be tilted from 0-90 degrees for different grinding tasks.",
+        "Accepts industry standard 1.5\" square tooling arms in case I'd rather buy an attachment than make one.",
+        "Adjustable work rest, small wheel holder, various contact wheels, different platen hardnesses, and surface grinder"
+      ],
+      "skills": ["Fusion360", "Sheet Metal Design", "MIG Welding", "Manual Lathe", "Manual Mill", "CNC Laser Cutting"],
+      "gallery": [
+        "/images/projects/grinder/img1.png",
+        "/images/projects/grinder/img2.png",
+        "/images/projects/grinder/img3.png",
+        "/images/projects/grinder/img4.png",
+        "/images/projects/grinder/img5.png",
+        "/images/projects/grinder/img6.png"
+      ]
+    },
+
+    {
+      "title": "Surface Grinding Attachment",
+      "dates": "December 2025",
+      "blurb": "Attachment for 2x72 belt grinder to enable precise surface grinding capabilities.",
+      "cover": "/images/projects/surface/img1.png",
+      "bullets": [
+        "Standard 1.5\" tooling arm to fit in most grinders",
+        "Entirely manually machined aluminum body.",
+        "Includes 7 switchable magnets in the chuck to hold workpieces securely.",
+        "Rigid dovetail feed mechanism with UHMW gibs for smooth, tight control.",
+        "Sine bar built into the chuck to allow for grinding precise tapers.",  
+        "Extra wide 3\" contact wheel for tracking back and forth across a wide workpiece."
+      ],
+      "skills": ["Fusion360", "Manual Mill"],
+      "gallery": [
+        "/images/projects/surface/img1.png",
+        "/images/projects/surface/img2.png",
+        "/images/projects/surface/img3.png",
+        "/images/projects/surface/img4.png",
+        "/images/projects/surface/img5.png"
+
       ]
     }
+
   ]
 }
