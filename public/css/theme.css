@@ -489,3 +489,37 @@ details.card .thumb img{ width: 100%; height: auto; display: block; border-radiu
   .lb-backdrop{ padding: 12px; }
   .lb-close{ top: 12px; right: 12px; width: 44px; height: 44px; line-height: 44px; font-size: 26px; }
 }
+
+/* When the navbar wraps, center the logo above the links */
+@media (max-width: 680px){
+  header.site-nav{
+    flex-wrap: wrap;
+  }
+
+  /* Brand gets its own row, centered */
+  header.site-nav .brand{
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;          /* space between logo and links */
+  }
+
+  /* Links on second row, centered */
+  header.site-nav .links{
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+}
+
+/* Optional: extra-tight phones */
+@media (max-width: 420px){
+  :root{
+    --logo-size: 48px;
+    --nav-font-size: 17px;
+    --nav-gap: 14px;
+  }
+}
