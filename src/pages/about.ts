@@ -33,7 +33,7 @@ export function mountAbout(){
     <!-- ROW 2 (STAGGER): image → text (label+paragraph) -->
     <section class="about-row flip">
       <figure class="figure">
-        <img src="/images/qnc.png" alt="Project imagery">
+        <img src="/images/projects/lens-sim/gui4.png" alt="Project imagery">
       </figure>
       <div class="text">
         <div class="vlabel">Professional</div>
