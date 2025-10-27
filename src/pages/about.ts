@@ -21,7 +21,7 @@ export function mountAbout(){
           Information specialization, and a minor in Combinatorics and Optimization.
           I spend a lot of time at the Quantum-Nano Centre, touching semiconductor
           fab, lithography and materials characterization. Next up: a deeper run
-          into quantum physics &amp; computing—fueling a long-term curiosity for how
+          into quantum physics &amp; computing, fueling a long-term curiosity for how
           matter behaves when the rules get weird.
         </article>
       </div>
@@ -38,7 +38,7 @@ export function mountAbout(){
       <div class="text">
         <div class="vlabel">Professional</div>
         <article class="copy">
-          Coast-to-coast R&amp;D—from Los Angeles to Boston. I've designed microscope
+          Coast-to-coast R&amp;D, from Los Angeles to Boston. I've designed microscope
           tooling, deployed data analysis and simulation tools, and turned one-off
           experiments into reliable workflows. I'm happiest solving problems that
           force me to learn new skills and result in dependable tools. 
@@ -52,7 +52,7 @@ export function mountAbout(){
         <div class="vlabel">Personal</div>
         <article class="copy">
           I'm a craftsman at heart, making real things that last. Archangel Ironworks 
-          is my after hours passion— forging custom blades and jewelry, experimenting 
+          is my after hours passion: forging custom blades and jewelry, experimenting 
           with fun Damascus steel patterns, and fabricating awesome equipment for the shop. 
           I post some of the cool stuff I make on Instagram. Away from the anvil, I'm an 
           amateur perfumer and musical theatre nerd.
