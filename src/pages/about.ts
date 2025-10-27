@@ -41,9 +41,7 @@ export function mountAbout(){
           Coast-to-coast R&amp;D—from Los Angeles to Boston. I've designed microscope
           tooling, deployed data analysis and simulation tools, and turned one-off
           experiments into reliable workflows. I'm happiest solving problems that
-          force me to learn new skills and result in dependable tools. Going forward,
-          I want to expand my knowledge of software so I can build better tools for scientists,
-          engineers, and technicians.
+          force me to learn new skills and result in dependable tools. 
         </article>
       </div>
     </section>
