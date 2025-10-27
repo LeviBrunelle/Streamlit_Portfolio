@@ -88,6 +88,7 @@ header.site-nav{
   max-width: none; 
   padding-left: var(--page-pad-left);
   padding-right: var(--page-pad-right);
+  padding-bottom: 96px;
   margin: 0;  
 }
 
