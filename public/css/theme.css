@@ -159,18 +159,41 @@ header.site-nav{
   object-fit: cover;
 }
 
-@media (max-width: 980px){
+@media (max-width: 850px){
   .about-row,
   .about-row.flip{
     grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 28px 0;
   }
-  .about-row .text{ grid-template-columns: 1fr; row-gap: .25rem; }
+
+  /* always stack text first, picture second */
+  .about-row .text{ 
+    grid-template-columns: 1fr; 
+    row-gap: .25rem; 
+    order: 1;
+  }
+  .about-row .figure{ 
+    order: 2; 
+    justify-self: start;    /* keep image aligned with text edge */
+  }
+
   .about-row .vlabel{
     writing-mode: horizontal-tb; transform: none;
     letter-spacing: .08em; font-size: .95rem;
     margin-top: 0;
   }
+
+  .about-row .figure img{
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 72vw;    
+    border-radius: var(--about-radius);
+    object-fit: cover;
+  }
 }
+
 
 /* ========================= */
 /* ===== PROJECTS TUNE ===== */
@@ -362,3 +385,107 @@ details.card .thumb img{ width: 100%; height: auto; display: block; border-radiu
 /* affordance on thumbs */
 .gallery .thumb img{ cursor: zoom-in; }
 .gallery .thumb a{ display:block; }
+
+
+/* ===========================
+   Mobile polish (<= 850px)
+   =========================== */
+@media (max-width: 850px){
+
+  /* Compact global scales */
+  :root{
+    --logo-size: 60px;
+    --nav-gap: 18px;
+    --nav-font-size: 18px;
+
+    --page-pad-left: 20px;
+    --page-pad-right: 20px;
+
+    --about-h1: clamp(32px, 9vw, 56px);
+    --hero-gap-bottom: 28px;
+  }
+
+  /* Navbar: smaller, tighter */
+  header.site-nav{
+    padding-inline: 16px !important;
+    padding-block: 18px 10px !important;
+    gap: var(--nav-gap);
+  }
+
+  /* Page gutters */
+  .page,
+  .about-page{
+    padding-left: var(--page-pad-left);
+    padding-right: var(--page-pad-right);
+  }
+
+  /* Big headers */
+  .about-hero{
+    margin: 28px 0 12px;
+    line-height: 1.06;
+  }
+
+  /* About rows collapse to one column */
+  .about-row,
+  .about-row.flip{
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .about-row .text{
+    grid-template-columns: 1fr; 
+    row-gap: .25rem;
+  }
+  .about-row .figure img{
+    max-width: 72vw;
+  }
+
+  /* Cards */
+  .projects-page .proj-list,
+  .experience-page .xp-list{
+    gap: 16px;            /* tighter stack */
+  }
+
+  .card summary{
+    padding: 14px 14px;
+    display: grid;
+    grid-template-columns: 72px 1fr; /* icon | content */
+    column-gap: 12px;
+  }
+  .card .title{ font-size: 1.15rem; line-height: 1.18; }
+  .card .dates{ font-size: .96rem; margin-top: 2px; }
+  .card .blurb{ margin-top: 2px; line-height: 1.35; }
+
+  details.card{ border-radius: 16px; }
+
+  /* ── CTA placement ── */
+  .card{
+    display: grid;
+    grid-template-rows: auto 1fr auto;   /* summary | body | cta */
+  }
+  .card summary{ grid-row: 1; }
+  .card .card-body{ grid-row: 2; }
+  .card-link{
+    grid-row: 3;
+    position: static;                    /* participate in flow */
+    margin: 12px 0 0 18px;
+    opacity: 0;
+    transform: none;
+    pointer-events: none;
+    justify-self: start;                 /* align left */
+  }
+  .card[open] .card-link{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Pills + gallery */
+  .pills{ gap: 8px; }
+  .gallery{ gap: 10px; }
+  .gallery .thumb{ flex: 1 1 46%; }      /* two-up grid */
+  .gallery .thumb img{ border-radius: 10px; }
+
+  /* Lightbox */
+  .lb-backdrop{ padding: 12px; }
+  .lb-close{ top: 12px; right: 12px; width: 44px; height: 44px; line-height: 44px; font-size: 26px; }
+}
